@@ -25,7 +25,7 @@ public class EurekaClientController {
     @Autowired
     private Registration registration;
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    @RequestMapping("/hello")
     public String index() {
         String services = "Services: " + client.getServices();
 
