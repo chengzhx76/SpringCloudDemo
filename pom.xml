@@ -36,6 +36,7 @@
         <module>EurekaServer</module>
         <module>EurekaClient</module>
         <module>EurekaRibbonConsumer</module>
+        <module>EurekaRibbonConsumerHystrix</module>
     </modules>
 
     <build>

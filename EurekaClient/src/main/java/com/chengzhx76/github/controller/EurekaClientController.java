@@ -5,9 +5,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.serviceregistry.Registration;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Random;
 
 /**
  * Desc:
@@ -28,13 +31,21 @@ public class EurekaClientController {
     @RequestMapping("/hello")
     public String index() {
         String services = "Services: " + client.getServices();
-
         String serverId = registration.getServiceId();
 
         _log.info("---> "+serverId);
         _log.info("---> "+services);
 
         return services;
+    }
+
+    @GetMapping("time-out")
+    public String testTimeOut() throws InterruptedException {
+        int sleepTime = new Random().nextInt(3000);
+        Thread.sleep(sleepTime);
+        _log.info("---> ServiceId:{}, Sleep:{}", registration.getServiceId(), sleepTime);
+
+        return sleepTime+"";
     }
 
 }
