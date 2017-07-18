@@ -10,15 +10,15 @@
         <version>1.5.4.RELEASE</version>
     </parent>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
-    </properties>
-
     <groupId>com.chengzhx76.github</groupId>
     <artifactId>SpringCloudDemo</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -35,6 +35,7 @@
     <modules>
         <module>EurekaServer</module>
         <module>EurekaClient</module>
+        <module>EurekaRibbonConsumer</module>
     </modules>
 
     <build>
