@@ -4,6 +4,8 @@ import com.chengzhx76.github.hystrix.UserCommand;
 import com.chengzhx76.github.model.User;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.command.AsyncResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -20,6 +22,8 @@ import java.util.concurrent.TimeoutException;
  */
 @Service
 public class UserService {
+
+    private final Logger _log = LoggerFactory.getLogger(UserService.class);
 
     @Autowired
     private RestTemplate restTemplate;
