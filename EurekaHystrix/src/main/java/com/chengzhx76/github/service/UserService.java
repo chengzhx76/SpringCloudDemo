@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 /**
  * Desc:
@@ -33,33 +30,23 @@ public class UserService {
     public User getUserById(int id) {
 
         User user = new UserCommand(restTemplate, id).execute();
-        User user1 = restTemplate.getForObject("http://eureka-client/user/{1}", User.class, id);
-
+        //User user = restTemplate.getForObject("http://eureka-client/user/{1}", User.class, id);
         return user;
     }
 
     // 异步执行
     @HystrixCommand
-    public User getUserByIdAsync(final int id) {
-        Future<User> futureUser = new UserCommand(restTemplate, id).queue();
+    public Future<User> getUserByIdAsync(final int id) {
+        //Future<User> futureUser = new UserCommand(restTemplate, id).queue();
 
-        Future<User> futureUser1 = new AsyncResult<User>() {
+        Future<User> futureUser = new AsyncResult<User>() {
             @Override
             public User invoke() {
                 return restTemplate.getForObject("http://eureka-client/user/{1}", User.class, id);
             }
         };
 
-        try {
-            return futureUser.get(1000L, TimeUnit.MICROSECONDS);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (TimeoutException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return futureUser;
     }
 
 }

@@ -67,4 +67,9 @@ public class EurekaClientController {
         return "Hello " + user.getName() + ", " + user.getAge();
     }
 
+    @GetMapping("user/{id}")
+    public User getUserById(@PathVariable int id) {
+        return new User(id, "chengzhx76", 18, new Date());
+    }
+
 }
