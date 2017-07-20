@@ -35,7 +35,6 @@ public class ConsumerController {
         return service.getUserById(id);
     }
 
-
     @GetMapping("user-async/{id}")
     public String getUserByIdAsync(@PathVariable("id") int id) {
 
