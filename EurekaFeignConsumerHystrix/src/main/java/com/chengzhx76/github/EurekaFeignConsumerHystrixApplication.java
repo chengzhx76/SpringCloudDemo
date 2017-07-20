@@ -1,11 +1,9 @@
-package com.chengzhx76.gethub;
+package com.chengzhx76.github;
 
-import feign.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.context.annotation.Bean;
 
 /**
  * Desc:
@@ -15,15 +13,10 @@ import org.springframework.context.annotation.Bean;
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
-public class EurekaFeignConsumerApplication {
-
-    @Bean
-    Logger.Level feignLoggerLevel() {
-        return Logger.Level.FULL;
-    }
+public class EurekaFeignConsumerHystrixApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(EurekaFeignConsumerApplication.class, args);
+        SpringApplication.run(EurekaFeignConsumerHystrixApplication.class, args);
     }
 
 }

@@ -40,7 +40,7 @@ public class EurekaClientController {
 
     @GetMapping("time-out")
     public String testTimeOut() throws InterruptedException {
-        int sleepTime = new Random().nextInt(3000);
+        int sleepTime = new Random().nextInt(4000);
         Thread.sleep(sleepTime);
         _log.info("---> ServiceId:{}, Sleep:{}", registration.getServiceId(), sleepTime);
 

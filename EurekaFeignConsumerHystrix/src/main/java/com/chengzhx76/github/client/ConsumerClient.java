@@ -1,5 +1,6 @@
-package com.chengzhx76.gethub.client;
+package com.chengzhx76.github.client;
 
+import com.chengzhx76.github.fallback.HelloServiceFallback;
 import com.chengzhx76.github.model.User;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -9,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
  * Author: chengzhx76@qq.com
  * Date: 2017/7/19
  */
-//@FeignClient(name = "eureka-client", configuration = FullLogConfiguration.class)
-@FeignClient("eureka-client")
+//@FeignClient(name = "eureka-client", configuration = DisableHytrixConfiguration.class)
+@FeignClient(name = "eureka-client", fallback = HelloServiceFallback.class)
 public interface ConsumerClient {
 
     @GetMapping("hello")

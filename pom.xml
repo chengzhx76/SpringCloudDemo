@@ -44,6 +44,7 @@
         <module>EurekaRibbonConsumerHystrix</module>
         <module>EurekaFeignConsumer</module>
         <module>EurekaClientApi</module>
+        <module>EurekaFeignConsumerHystrix</module>
     </modules>
 
 </project>
