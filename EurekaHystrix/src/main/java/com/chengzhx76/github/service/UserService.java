@@ -1,5 +1,6 @@
 package com.chengzhx76.github.service;
 
+import com.chengzhx76.github.exception.BadRequestException;
 import com.chengzhx76.github.hystrix.UserCommand;
 import com.chengzhx76.github.model.User;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
@@ -90,4 +91,20 @@ public class UserService {
     public User defaultUserSec() {
         return new User(-1, "Second Fallback", 18, new Date());
     }
+
+    @HystrixCommand(ignoreExceptions = {BadRequestException.class})
+    public User getUserByIdException(int id) {
+        return restTemplate.getForObject("http://eureka-client/user/{1}", User.class, id);
+    }
+
+    @HystrixCommand(fallbackMethod = "fallback")
+    public User getUserByIdThrowable(int id) {
+        throw new RuntimeException("getUserBtId command failed");
+    }
+
+    private User fallback(int id, Throwable e) {
+        _log.warn("---> ID: {}, msg: {}", id, e.getMessage());
+        return new User(0, "First Fallback", 18, new Date());
+    }
+
 }
