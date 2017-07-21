@@ -36,28 +36,25 @@ public class ConsumerController {
     }
 
     @GetMapping("user-async/{id}")
-    public String getUserByIdAsync(@PathVariable("id") int id) {
-
+    public User getUserByIdAsync(@PathVariable("id") int id) {
         Future<User> futureUser = service.getUserByIdAsync(id);
-        Exception ex = null;
+        User user = null;
         try {
-            User user = futureUser.get();
+            user = futureUser.get();
             //User user = futureUser.get(10L, TimeUnit.SECONDS);
 
             _log.info("---> {}", user);
 
         } catch (InterruptedException e) {
             _log.error("--> InterruptedException", e);
-            ex = e;
         } catch (ExecutionException e) {
             _log.error("--> ExecutionException", e);
-            ex = e;
         }/* catch (TimeoutException e) {
             _log.error("--> TimeoutException", e);
             ex = e;
         }*/
 
-        return ex == null ? "success" : ex.getMessage();
+        return user;
     }
 
 }
