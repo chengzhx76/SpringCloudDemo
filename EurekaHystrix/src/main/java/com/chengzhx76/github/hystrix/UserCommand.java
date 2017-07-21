@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Date;
+
 /**
  * Desc:
  * Author: chengzhx76@qq.com
@@ -33,6 +35,6 @@ public class UserCommand extends HystrixCommand<User> {
     @Override
     protected User getFallback() {
         _log.warn("---> 进入Fallback");
-        return super.getFallback();
+        return new User(0, "未知", 18, new Date());
     }
 }
