@@ -107,4 +107,9 @@ public class UserService {
         return new User(0, "First Fallback", 18, new Date());
     }
 
+    @HystrixCommand(commandKey = "getUserByIdCommand", groupKey = "UserGroup", threadPoolKey = "getUserByIdCommandThread")
+    public User getUserByIdCommand(int id) {
+        return restTemplate.getForObject("http://eureka-client/user/{1}", User.class, id);
+    }
+
 }

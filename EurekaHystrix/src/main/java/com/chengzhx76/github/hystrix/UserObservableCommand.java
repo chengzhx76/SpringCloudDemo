@@ -1,8 +1,7 @@
 package com.chengzhx76.github.hystrix;
 
 import com.chengzhx76.github.model.User;
-import com.netflix.hystrix.HystrixCommandGroupKey;
-import com.netflix.hystrix.HystrixObservableCommand;
+import com.netflix.hystrix.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
@@ -24,7 +23,9 @@ public class UserObservableCommand extends HystrixObservableCommand<User> {
     private RestTemplate template;
 
     public UserObservableCommand(int id, RestTemplate template) {
-        super(HystrixCommandGroupKey.Factory.asKey("UserObservable"));
+//        super(HystrixCommandGroupKey.Factory.asKey("UserObservable"));
+        super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("UserGroupName"))
+                .andCommandKey(HystrixCommandKey.Factory.asKey("UserCommandKey")));
         this.id = id;
         this.template = template;
     }
