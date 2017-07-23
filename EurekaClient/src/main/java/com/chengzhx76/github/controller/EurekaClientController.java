@@ -1,6 +1,6 @@
 package com.chengzhx76.github.controller;
 
-import com.chengzhx76.github.model.User;
+import com.chengzhx76.github.api.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +69,9 @@ public class EurekaClientController {
 
     @GetMapping("user/{id}")
     public User getUserById(@PathVariable int id) {
+
+        _log.info("---> {}", id);
+
         return new User(id, "chengzhx76", 18, new Date());
     }
 

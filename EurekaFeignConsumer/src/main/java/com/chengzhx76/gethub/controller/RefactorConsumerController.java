@@ -1,7 +1,7 @@
 package com.chengzhx76.gethub.controller;
 
 import com.chengzhx76.gethub.client.RefactorHelloService;
-import com.chengzhx76.github.model.User;
+import com.chengzhx76.github.api.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

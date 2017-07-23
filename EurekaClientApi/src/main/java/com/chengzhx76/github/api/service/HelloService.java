@@ -1,6 +1,6 @@
-package com.chengzhx76.github.service;
+package com.chengzhx76.github.api.service;
 
-import com.chengzhx76.github.model.User;
+import com.chengzhx76.github.api.model.User;
 import org.springframework.web.bind.annotation.*;
 
 /**

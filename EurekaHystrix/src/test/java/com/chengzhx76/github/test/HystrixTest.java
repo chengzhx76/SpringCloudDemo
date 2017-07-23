@@ -1,5 +1,6 @@
 package com.chengzhx76.github.test;
 
+import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,6 +65,35 @@ public class HystrixTest {
                 System.out.println("---> onNext " + data);
             }
         });
+    }
+
+    @Test
+    public void testCache() {
+        HystrixRequestContext context = HystrixRequestContext.initializeContext();
+        try {
+            HystrixCommandTestModel model = new HystrixCommandTestModel("chengzhx76");
+            Object data = model.execute();
+            System.out.println(model.getExecutionTimeInMilliseconds());
+            System.out.println(model.isResponseFromFallback());
+            System.out.println(model.isResponseFromCache());
+            System.out.println(model.isResponseTimedOut());
+
+            System.out.println(data);
+
+            System.out.println("----------------------------------");
+
+
+            HystrixCommandTestModel model2 = new HystrixCommandTestModel("chengzhx76");
+            Object data2 = model2.execute();
+            System.out.println(model2.getExecutionTimeInMilliseconds());
+            System.out.println(model2.isResponseFromFallback());
+            System.out.println(model2.isResponseFromCache());
+            System.out.println(model2.isResponseTimedOut());
+            System.out.println(data2);
+
+        } finally {
+            context.shutdown();
+        }
     }
 
 }

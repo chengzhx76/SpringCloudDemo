@@ -1,6 +1,6 @@
 package com.chengzhx76.github.hystrix;
 
-import com.chengzhx76.github.model.User;
+import com.chengzhx76.github.api.model.User;
 import com.netflix.hystrix.*;
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategyDefault;
 import org.slf4j.Logger;
@@ -28,7 +28,7 @@ public class UserCommand extends HystrixCommand<User> {
 
         super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("UserGroupName"))
                 .andCommandKey(GETTER_KEY)
-                .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("UserThreadPoolKey")));
+                .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("UserThreadPoolKey")).andCommandPropertiesDefaults(HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(1000)));
 
         this.id = id;
         this.restTemplate = restTemplate;

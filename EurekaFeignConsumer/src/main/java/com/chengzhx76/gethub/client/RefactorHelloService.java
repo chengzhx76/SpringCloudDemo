@@ -1,6 +1,6 @@
 package com.chengzhx76.gethub.client;
 
-import com.chengzhx76.github.service.HelloService;
+import com.chengzhx76.github.api.service.HelloService;
 import org.springframework.cloud.netflix.feign.FeignClient;
 
 /**

@@ -1,4 +1,4 @@
-package com.chengzhx76.github.service;
+package com.chengzhx76.github.api.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;

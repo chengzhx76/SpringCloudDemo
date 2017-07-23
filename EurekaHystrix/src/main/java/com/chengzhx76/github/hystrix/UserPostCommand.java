@@ -1,6 +1,6 @@
 package com.chengzhx76.github.hystrix;
 
-import com.chengzhx76.github.model.User;
+import com.chengzhx76.github.api.model.User;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixCommandKey;

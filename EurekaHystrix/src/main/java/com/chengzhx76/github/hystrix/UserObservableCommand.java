@@ -1,6 +1,6 @@
 package com.chengzhx76.github.hystrix;
 
-import com.chengzhx76.github.model.User;
+import com.chengzhx76.github.api.model.User;
 import com.netflix.hystrix.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,7 +1,7 @@
 package com.chengzhx76.github.controller;
 
-import com.chengzhx76.github.model.User;
-import com.chengzhx76.github.service.UserService;
+import com.chengzhx76.github.api.model.User;
+import com.chengzhx76.github.api.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

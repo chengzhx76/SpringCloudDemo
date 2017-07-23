@@ -1,6 +1,6 @@
 package com.chengzhx76.gethub.client;
 
-import com.chengzhx76.github.model.User;
+import com.chengzhx76.github.api.model.User;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 

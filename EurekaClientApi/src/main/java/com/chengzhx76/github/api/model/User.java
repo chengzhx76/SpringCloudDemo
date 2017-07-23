@@ -1,4 +1,4 @@
-package com.chengzhx76.github.model;
+package com.chengzhx76.github.api.model;
 
 import java.util.Date;
 

@@ -1,7 +1,7 @@
 package com.chengzhx76.github.fallback;
 
 import com.chengzhx76.github.client.ConsumerClient;
-import com.chengzhx76.github.model.User;
+import com.chengzhx76.github.api.model.User;
 import org.springframework.stereotype.Component;
 
 /**
