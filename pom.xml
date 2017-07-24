@@ -54,6 +54,7 @@
         <module>EurekaHystrix</module>
         <module>hystrix-dashboard</module>
         <module>turbine</module>
+        <module>turbine-amqp</module>
     </modules>
 
 </project>
