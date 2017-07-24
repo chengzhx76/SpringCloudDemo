@@ -52,6 +52,8 @@
         <module>EurekaClientApi</module>
         <module>EurekaFeignConsumerHystrix</module>
         <module>EurekaHystrix</module>
+        <module>hystrix-dashboard</module>
+        <module>turbine</module>
     </modules>
 
 </project>
