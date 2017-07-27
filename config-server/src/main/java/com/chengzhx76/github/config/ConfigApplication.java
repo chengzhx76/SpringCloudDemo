@@ -2,6 +2,7 @@ package com.chengzhx76.github.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
  * Author: chengzhx76@qq.com
  * Date: 2017/7/25
  */
+@EnableDiscoveryClient
 @EnableConfigServer
 @SpringBootApplication
 public class ConfigApplication {
